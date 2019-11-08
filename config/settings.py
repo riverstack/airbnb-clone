@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
@@ -30,7 +29,6 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-
 DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -40,6 +38,8 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
+THIRD_PARTY_APPS = ["django_countries", "django-seed"]
+
 PROJECT_APPS = [
     "core.apps.CoreConfig",
     "users.apps.UsersConfig",
@@ -48,9 +48,10 @@ PROJECT_APPS = [
     "reservations.apps.ReservationsConfig",
     "lists.apps.ListsConfig",
     "conversations.apps.ConversationsConfig",
+    "django_seed",
 ]
 
-THIRD_PARTY_APPS = ["django_countries"]
+THIRD_PARTY_APPS = ["django_countries", "django_seed"]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
 
