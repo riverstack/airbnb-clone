@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 
 
 class User(AbstractUser):
@@ -32,6 +32,5 @@ class User(AbstractUser):
     birthdate = models.DateField(blank=True, null=True)
     langauge = models.CharField(choices=LANGUAGE_CHOICES, max_length=2, blank=True)
     currency = models.CharField(choices=CURRENCY_CHOICES, max_length=3, blank=True)
-
     superhost = models.BooleanField(default=False)
 
