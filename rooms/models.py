@@ -113,4 +113,3 @@ class Room(core_models.TimeStampedModel):
         else:
             result = all_ratings / len(all_reviews)
             return round(result, 2)
-
