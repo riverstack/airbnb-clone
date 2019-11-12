@@ -1,4 +1,6 @@
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.http import Http404
+from django.shortcuts import render
 from . import models
 
 
@@ -7,11 +9,21 @@ class HomeView(ListView):
     """ HomeView Definition """
 
     model = models.Room
-    paginate_by = 10
+    paginate_by = 15
     paginate_orphans = 5
     ordering = "created"
     context_object_name = "rooms"
 
-    def get_context_data(self, **kwarge):
-        context = super().get_context_data(**kwarge)
-        return context
+
+class RoomDetail(DetailView):
+
+    """ RoomDetail Definition """
+
+    model = models.Room
+
+
+def search(request):
+    city = request.GET.get("city")
+    """city = str.capitalize(city)"""
+    print(city)
+    return render(request, "rooms/search.html", {"city" : city})
